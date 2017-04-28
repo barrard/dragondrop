@@ -41,13 +41,7 @@ var CratedElementsGlobal = (function(){
 	el.classList.add('userCreatedElement')
 	el.id = UserCreatedElement_id_Prepend+elementCounter
 	el.addEventListener('contextmenu', listenForRightClick, true)
-	el.addEventListener('touchstart', Touch.touchStartDisplay, true)
-	el.addEventListener('touchenter', Touch.touchEnterDisplay, true)
-	el.addEventListener('touchcancel', Touch.touchCancelDisplay, true)
-	el.addEventListener('touchend', Touch.touchEndDisplay, true)
-	el.addEventListener('touchleave', Touch.touchLeaveDisplay, true)
-	el.addEventListener('touchmove', Touch.touchMoveDisplay, true)
-	el.addEventListener('touchmove', Touch.touchCount, true)
+
 	el.addEventListener('click', function(){
 		console.log('clicky clicky event')
 		if(el.dragg){
@@ -179,7 +173,7 @@ function addHoverEvent(el){
 			var movementY = initialY - clientY
 			var newHeight = height - movementY
 			e.target.style.height = newHeight+'px'
-			e.target.innerText = 'movementY '+ movementY + ' newHeight '+newHeight
+			// e.target.innerText = 'movementY '+ movementY + ' newHeight '+newHeight
 
 		}
 
@@ -200,7 +194,7 @@ function addHoverEvent(el){
 			var touchFlag = 0
 	
 
-			e.target.innerText = touchFlag+'<br> movementX '+ movementX + ' newWidth '+newWidth + ' newLeft '+newLeft
+			// e.target.innerText = touchFlag+'<br> movementX '+ movementX + ' newWidth '+newWidth + ' newLeft '+newLeft
 
 
 		}
@@ -217,7 +211,7 @@ function addHoverEvent(el){
 			var movementX = initialX - clientX
 			var newWidth = width-movementX
 			e.target.style.width = newWidth+'px'
-			e.target.innerText = 'movementX '+ movementX + ' newHeight '+newWidth
+			// e.target.innerText = 'movementX '+ movementX + ' newHeight '+newWidth
 
 		}
 
@@ -237,7 +231,7 @@ function addHoverEvent(el){
 			var newHeight = height-movementY
 			e.target.style.top = newTop+'px'
 			e.target.style.height = newHeight+'px'
-			e.target.innerText = 'initialY '+initialY+ ' e.clientY '+clientY+' movementY '+ movementY + ' newHeight '+newHeight + ' newTop '+newTop
+			// e.target.innerText = 'initialY '+initialY+ ' e.clientY '+clientY+' movementY '+ movementY + ' newHeight '+newHeight + ' newTop '+newTop
 
 		}
 
@@ -302,23 +296,23 @@ function makeDraggable(el){
 			elStyle.cursor = '-webkit-grabbing'
 			if(e.layerX < 10 ){
 				console.log('left edge')
-				e.target.style.backgroundColor = 'green'
+				// e.target.style.backgroundColor = 'green'
 				el.resizeEgde=true
 				addResizeElementWithMouse(el, 'left', initialX, initialY)
 			}else if(e.layerY < 10){
 				console.log('top edge')
-				e.target.style.backgroundColor = 'yellow'
+				// e.target.style.backgroundColor = 'yellow'
 				el.resizeEgde=true
 				addResizeElementWithMouse(el, 'top', initialX, initialY)
 			}else if((parseInt(elStyle.width) - e.layerX < 10)){
 				console.log('RIGHT SIDE')
-				e.target.style.backgroundColor = 'red'
+				// e.target.style.backgroundColor = 'red'
 				el.resizeEgde=true
 				addResizeElementWithMouse(el, 'right', initialX, initialY)
 			}else if((parseInt(elStyle.height) - e.layerY < 10)){
 				console.log('BOTTOM???')
 				el.resizeEgde=true	
-				e.target.style.backgroundColor = 'orange'
+				// e.target.style.backgroundColor = 'orange'
 				addResizeElementWithMouse(el, 'bottom', initialX, initialY)
 			}else{
 				console.log(e)
@@ -411,7 +405,7 @@ function getDataLinkDetails(e){
 		plusBtn.addEventListener('click', function(e){
 			if(e.target!=this)return
 				console.log(e.target.id.slice(0, -8))
-				//slice off the button tag and call the UIFunctions
+				//slice off the button tag and call the UIFunctions with just the ucel_id
 				UIFunctions.appendInnerDiv(e.target.id.slice(0, -8))
 
 		}, false)
@@ -447,7 +441,7 @@ function removeEditableity(e){
 	console.log('remove '+plusBtn)
 	var pb = 	document.getElementById(plusBtn+'_plusBtn')
 	console.log(pb)
-	dgid(pb.id).remove()
+	pb.remove()
 	// plusBtn.remove()
 	console.log(plusBtn)
 	this.classList.remove('resizableElement')

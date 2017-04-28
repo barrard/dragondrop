@@ -14,7 +14,7 @@ PageLayout = (function(){
 dgid('elText').addEventListener('input', function(e){
 	var id = getCurrentSelectedElementId()
 	var text = e.target.value
-	dgid(id).innerHTML = text
+	dgid(id).innerText = text
 
 }, true)
 var selectedElementDetailsSection = dgcn('selectedElementDetailsSection')[0]

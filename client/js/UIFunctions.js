@@ -25,7 +25,7 @@ UIFunctions= (function(){
 		var selectedElementNameandDetails = dgid('selectedElementNameandDetails')
 		var elText = dgid('elText')
 		selectedElementNameandDetails.innerHTML = el.nodeName
-		elText.value = el.innerText
+		elText.innerHTML = el.innerText
 		selectedElementNameandDetails.classList.add('selectedElementNameandDetails')
 		var tableData = PageLayout.tableHeaderArray
 		// console.log(el)
@@ -123,36 +123,48 @@ UIFunctions= (function(){
 
 
 	function appendInnerDiv(elId){
-		console.log('toggle = ' + appendInnerDiv.prototype.toggle)
 		console.log(elId)
 		var el = dgid(elId)
 	//create some kind of pop up with shapes
-	if(!appendInnerDiv.prototype.toggle){
-		appendInnerDiv.prototype.toggle = !appendInnerDiv.prototype.toggle
-		console.log(appendInnerDiv.prototype)
+	if(dgcn('shapesContainer').length === 0){
+
 		RenderComponent.shapesContainer(el)
+	}
+			
+	// 		if(!appendInnerDiv.prototype.toggle){
+	// 			appendInnerDiv.prototype.toggle = !appendInnerDiv.prototype.toggle
+	// 			console.log(appendInnerDiv.prototype)
+	// }
+
+	if(elId === dgcn('shapesContainer')[0].getAttribute('data-link')){
+		console.log('same link')
+		if(dgcn('shapesContainer')[0].style.display === 'none'){
+			dgcn('shapesContainer')[0].style.display = 'block'
+
+
+		}else if(dgcn('shapesContainer')[0].style.display === 'block'){
+			dgcn('shapesContainer')[0].style.display = 'none'
+		}
+
 
 	}else{
-		if(elId === dgcn('shapesContainer')[0].getAttribute('data-link')){
-			console.log('same link')
-			dgcn('shapesContainer')[0].remove()
-
-			appendInnerDiv.prototype.toggle = !appendInnerDiv.prototype.toggle
-
-		}else{
 			console.log('diffferrrntntn DATA LINKS')
-			dgcn('shapesContainer')[0].remove()
-			RenderComponent.shapesContainer(el)
+			dgcn('shapesContainer')[0].setAttribute('data-link', elId)
+			if(dgcn('shapesContainer')[0].style.display === 'none'){
+				dgcn('shapesContainer')[0].style.display = 'block'
 
+
+			}
 		}
-	}
+
+
 
 
 }
 
 
 
-appendInnerDiv.prototype.toggle = false
+appendInnerDiv.prototype.toggle = true
 
 
 

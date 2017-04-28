@@ -137,7 +137,7 @@ var EdgeResize = (function(){
 			mouseupEvent.initEvent ('mouseup', true, true);
 			e.target.dispatchEvent(mouseupEvent)
 		}
-		for(var x = 0;x<numberOfRows;x++){
+		for(var x = 0;x<1;x++){//just add to first row
 			rowObj[x]= rows[x]
 			var columnCount = rows[x].children.length
 			var dataColumn = rows[x].children

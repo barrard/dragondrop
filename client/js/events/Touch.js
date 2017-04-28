@@ -7,6 +7,31 @@ var Touch = (function(){
 		return document.getElementById(el)
 	}
 
+
+	function addTouchEventsWatcher (el){
+
+
+		var touchDisplayHTML=  `<div class='touchDislay'>
+			<div class='touchBox'>touchMove<br><span id="touchMove"></span></div>
+			<div class='touchBox'>touchLeave <br><span id="touchLeave"></span></div>
+			<div class='touchBox'>touchEnd <br><span id="touchEnd"></span></div>
+			<div class='touchBox'>touchStart <br><span id="touchStart"></span></div>
+			<div class='touchBox'>touchCancel <br><span id="touchCancel"></span></div>
+			<div class='touchBox'>touchEnter <br><span id="touchEnter"></span></div>
+			<div class='touchBox'>touchCount <br><span id="touchCount"></span></div>
+		</div>`
+
+		el.addEventListener('touchstart', Touch.touchStartDisplay, true)
+		el.addEventListener('touchenter', Touch.touchEnterDisplay, true)
+		el.addEventListener('touchcancel', Touch.touchCancelDisplay, true)
+		el.addEventListener('touchend', Touch.touchEndDisplay, true)
+		el.addEventListener('touchleave', Touch.touchLeaveDisplay, true)
+		el.addEventListener('touchmove', Touch.touchMoveDisplay, true)
+		el.addEventListener('touchmove', Touch.touchCount, true)
+	}
+
+
+
 	function _addEXYToSpan(span, event){
 		 // var touchobj = event.changedTouches[0]
 		 var touchobj = event
