@@ -1,0 +1,572 @@
+.MainContainer{
+	border: 1px solid black;
+	height: 100%;
+}
+
+.mainContent{
+	/*height: 80%;*/
+	right:0px;
+	position: absolute;
+	border: 1px solid green;
+	overflow: auto;
+}
+.mainContent > *:hover{
+	box-shadow: inset 0 0 5px rgba(10, 10, 10, 0.4);
+}
+
+.userCreatedElement{
+	/*position: relative;*/
+
+
+}
+.Hovered{
+	content: '*';
+	border: none;
+	outline: 2px dashed yellow;
+	box-shadow: 0 0 0 2px #EA3556;
+	animation:  1s animateBorder infinite;
+
+
+}
+.largerDiv:before{
+	content: '';
+	position: absolute;
+	width: 120%;
+	height: 120%;
+	padding: px;
+	left:-10%;
+	top:-10%;
+	/*border: 1px solid blue;*/
+	box-shadow:0 0 15px  blue;
+}
+
+
+@keyframes animateBorder {
+  to {
+    outline: 2px dashed #EA3556;
+    box-shadow: 0 0 0 2px yellow;
+  }
+}
+.userCreatedElement.resizableElement:after{
+	color: red;
+	position: absolute;
+	left: 0px;
+	content: 'editable';
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+	
+}
+
+.addInnerDivBtn{
+	position: absolute;
+	right:0;
+	color: red;
+}
+
+.shapesContainer{
+	width: 25%;
+	height: 25%;
+	border: 3px solid orange;
+	position: absolute;
+	bottom: 0px;
+	/*overflow: scroll;*/
+}
+
+.shapesContainer:before{
+	content: attr(data-link);
+	position:absolute;
+	top: -1.5em;
+}
+
+.innerShapesContainer{
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+}
+/*.fa{
+	color: red
+}*/
+
+.innerShapesContainer .fa{
+	color:red;
+	display: inline-block;
+}
+/*::-webkit-scrollbar{
+	background-color: red;
+	}
+::-webkit-scrollbar-track{
+	background-color: blue;
+	}
+::-webkit-scrollbar-thumb{
+	background-color: green;
+	}
+	::-webkit-scrollbar-thumb:window-inactive{
+		background-color: yellow;
+		}*/
+
+.toolBar{
+	user-select: none;
+
+	position: absolute;
+	margin:auto;
+	border: 1px solid pink;
+}
+
+.buttonContainer{
+	margin:auto;
+}
+
+.leftSideToolBar{
+	position: absolute;
+	/*bottom: 0px;*/
+	height: 80%;
+	top:0PX;
+	/*margin-top:1.2em;*/
+	/*margin-bottom: 1.2em;*/
+	
+	left: 0px;
+	/*height: 100vh;*/
+	
+}
+
+.individialStyles > input{
+	width:30px;
+}
+.elementStyles{
+	/*width: 100px;*/
+	display: block;
+
+
+}
+#elementsList li:nth-child(odd){
+	background-color: green;
+}
+#elementsList li:nth-child(even){
+	background-color: white;
+}
+#elementsList li:hover{
+	background-color: red;
+}
+
+
+.topSideToolBar{
+	width: 100%;
+	top: 0px;
+}
+
+.topSideToolBar > * {
+	text-align: center;
+
+/*	display: inline-block;*/
+
+}
+
+select{
+	text-align: center;
+}
+
+.rightSideToolBar{
+	right: 0px;
+	bottom: 0px;
+	top: 0px;
+	margin-top:1.2em;
+	margin-bottom: 1.2em;
+	height:80%;
+
+
+}
+
+.rightSideToolBar > .toolButton {
+	display: block;
+
+}
+.selectedElementNameandDetails{
+	color: goldenrod;
+	text-decoration: underline;
+	font-size: 20px;
+}
+.selectedElementDetailsSection input{
+	width:100%;
+}
+th {
+    font-weight: bold
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+}
+.underline{
+	text-decoration: underline;
+}
+.displayNone{
+	display: none;
+}
+.bottomSideToolBar{
+	/*height: 20%;*/
+	width: 100%;
+	bottom: 0px;
+}
+
+.bottomSideToolBar > .toolButton {
+	/*margin: 0px auto;*/
+	/*display: block;*/ 
+
+}
+
+.hidden{
+	display: none;
+}
+.shapeContainer{
+	position: relative;
+	display: inline-block;
+	margin:15px;
+	border: 1px solid grey;
+	padding: 3px;
+}
+
+.shapeContainer:hover .fa{
+	transition:all .1s ease;
+	transform: scale(3);
+	text-shadow: 3px 3px 3px rgba(100, 100, 100, 0.5)
+
+}
+
+/* container for the user created icons*/
+
+/*.ucelIconDiv{
+	position: absolute;
+	display: inline-block;
+	border: 2px solid goldenrod;
+	margin: 3px;
+	padding: 2px;
+}*/
+
+/*  user added icons to ucel */
+.fa.BBC{
+	position: absolute;
+	display: inline-block;
+
+	/*this should be styles for font icons*/
+	color:green;
+	/*padding: 10px;*/
+	/*margin:10px;*/
+	/*height: 100px;*/
+	font-size: 4em;
+	/*display: inline-block;*/
+	/*width: 100px;*/
+}
+.fa.BBC:hover{
+	box-shadow: 0 0 5px 5px rgba(111, 111, 111, 0.5);
+}
+.userCreatedElement::-webkit-scrollbar { 
+  /* This is the magic bit */
+  width: 0 !important
+}
+
+
+
+
+
+.inline{
+	display: inline-block;
+}
+
+._resizeable{
+	position: relative;
+}
+._resizeable:before{
+	content: '';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 10px;
+	height: 100%;
+	background-color: rgba(233, 233, 233, 0.5);
+}
+._resizeable:after{
+	content: '';
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 10px;
+	height: 100%;
+	background-color: rgba(233, 233, 233, 0.5);
+}
+
+.touchDislay{
+	position: relative;
+	/*remove whitespace hack
+	/*on children divs inline*/
+	/*font-size: 0;*/
+	border: 2px solid blue;
+
+}
+
+/*   UTIL     */
+
+ .touchBox{
+ 	width: 100px;
+ 	height: 100px;
+ 	position: relative;
+	background-color: rgba(255, 0, 0, 0.5);
+	border: 1px solid black;
+	display: block;
+	float: left;
+	/*margin-right: -1px;*/
+	/*font-size: 1em;*/
+	/*width: 100px;*/
+	/*height: 100px;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.shapeContainer:hover [class*="newShape_"],
+.shapeContainer:hover [class*="newShape_"]:after,
+.shapeContainer:hover [class*="newShape_"]:before
+{
+	box-shadow: 5px 5px 5px rgba(100, 100, 100, 0.5)	
+
+}
+
+
+[class*="newShape_"]{
+	margin: 10px;
+	
+
+}
+
+/*[class*="newShape_"]:hover{
+	box-shadow: 5px 5px 5px rgba(100, 100, 100, 0.5)	
+
+}*/
+
+.newShape_square{
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	
+}
+.newShape_circle{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: red;
+
+	
+}
+.newShape_star{
+	margin: 10px;
+	position: relative;
+	display: block;
+	color: red;
+	width: 0px;
+	height: 0px;
+	border-right:  10px solid transparent;
+	border-bottom: 7px  solid red;
+	border-left:   10px solid transparent;
+	-moz-transform:    rotate(35deg);
+	-webkit-transform: rotate(35deg);
+	-ms-transform:     rotate(35deg);
+	-o-transform:      rotate(35deg);
+}
+.newShape_star:before{
+	border-bottom: 8px solid red;
+	border-left: 3px solid transparent;
+	border-right: 3px solid transparent;
+	position: absolute;
+	height: 0;
+	width: 0;
+	top: -4.5px;
+	left: -6.5px;
+	display: block;
+	content: '';
+	-webkit-transform: rotate(-35deg);
+	-moz-transform:    rotate(-35deg);
+	-ms-transform:     rotate(-35deg);
+	-o-transform:      rotate(-35deg);
+
+}
+.newShape_star:after{
+	position: absolute;
+	display: block;
+	color: red;
+	top: .3px;
+	left: -10.5px;
+	width: 0px;
+	height: 0px;
+	border-right: 10px solid transparent;
+	border-bottom: 7px solid red;
+	border-left: 10px solid transparent;
+	-webkit-transform: rotate(-70deg);
+	-moz-transform:    rotate(-70deg);
+	-ms-transform:     rotate(-70deg);
+	-o-transform:      rotate(-70deg);
+	content: '';
+}
+.newShape_triangle{
+	width: 0px;
+	height: 0px;
+	border: 10px solid transparent;
+	border-left: 10px none transparent;
+	border-right: 10px solid red;
+}
+
+.newShape_octagon{
+	width: 20px;
+	height: 20px;
+	background: red;
+	position: relative;
+	display: block;
+}
+.newShape_octagon:before{
+	content: "";
+	position: absolute;
+	display: block;
+
+	top: 0;
+	left: 0;
+	border-bottom: 6px solid red;
+	border-left: 6px solid #eee;
+	border-right: 6px solid #eee;
+	width: 8px;
+	height: 0;
+}
+.newShape_octagon:after{
+	content: "";
+	display: block;
+
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-top: 6px solid red;
+	border-left: 6px solid #eee;
+	border-right: 6px solid #eee;
+	width: 8px;
+	height: 0;
+}
+
+
+.newShape_heart{
+	width: 21.2px;
+	height: 10.0px;
+	position: relative;
+}
+.newShape_heart:before,
+.newShape_heart:after{
+		/*margin:15px;*/
+
+    position: absolute;
+    display: block;
+    content: "";
+    left: 10px;
+    top: 0;
+    width: 10px;
+    height: 16px;
+    background: red;
+    border-radius: 50% 50% 0 0;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+         -o-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+}
+.newShape_heart:after{
+    left: 0;
+
+            transform: rotate(45deg);
+
+            transform-origin :100% 100%;
+}
+.newShape_infinity{
+	position: relative;
+	width: 21.2px;
+	height: 10.0px;
+}
+
+.newShape_infinity:before,
+.newShape_infinity:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6.0px;
+	height: 6.0px;
+	border: 2.0px solid red;
+	-moz-border-radius: 50% 50% 0 50%;
+	     border-radius: 50% 50% 0 50%;
+	-webkit-transform: rotate(-45deg);
+	   -moz-transform: rotate(-45deg);
+	    -ms-transform: rotate(-45deg);
+	     -o-transform: rotate(-45deg);
+	        transform: rotate(-45deg);
+}
+.newShape_infinity:after{
+	left: auto;
+	right: 0;
+	-moz-border-radius: 50% 50% 50% 0;
+	     border-radius: 50% 50% 50% 0;
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	     -o-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+
+
+.newShape_yin-yang{
+	width: 96px;
+	height: 48px;
+	background: #eee;
+	border-color: red;
+	border-style: solid;
+	border-width: 2px 2px 50px 2px;
+	border-radius: 100%;
+	position: relative;
+}
+
+.newShape_yin-yang:before{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	background: #eee;
+	border: 18px solid red;
+	border-radius: 100%;
+	width: 12px;
+	height: 12px;
+}
+
+.newShape_yin-yang:after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background: red;
+	border: 18px solid #eee;
+	border-radius:100%;
+	width: 12px;
+	height: 12px;
+}
