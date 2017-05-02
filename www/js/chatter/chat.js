@@ -166,7 +166,7 @@ function createChatter(){
 			document.getElementsByTagName('head')[0].appendChild(googlefontlink)
 
 				var script = document.createElement('script')
-				script.src = 'http://72.234.48.8:8081/socket.io/socket.io.js'
+				script.src = 'http://72.234.40.8:8081/socket.io/socket.io.js'
 				// script.src = 'http://192.168.200.93:8081/socket.io/socket.io.js'
 				document.getElementsByTagName('head')[0].appendChild(script)
 }
