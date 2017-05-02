@@ -267,6 +267,8 @@ function makeDraggable(el){
 	el.addEventListener('touchstart',resiseOrDrag, true)
 
 	function resiseOrDrag(e){
+		e.preventDefault()
+
 		if(e.target!=this)return
 			if(e.touches && e.touches[0].clientX){
 				var initialX = e.touches[0].clientX;
@@ -409,7 +411,7 @@ function getDataLinkDetails(e){
 				UIFunctions.appendInnerDiv(e.target.id.slice(0, -8))
 
 		}, false)
-		el.append(plusBtn)
+		el.appendChild(plusBtn)
 
 	}
 	// console.log(e.target.getAttribute('data-link'))

@@ -23,7 +23,7 @@ RenderComponent = (function(){
 
 		})
 		MakeDraggable.draggon(icon)
-		ucel.append(icon)
+		ucel.appendChild(icon)
 
 	}
 
@@ -47,8 +47,8 @@ RenderComponent = (function(){
 		shapesContainer.classList.add('shapesContainer')
 		shapesContainer.setAttribute('data-link', el.id)
 		shapesContainer.style.display = 'none'
-		shapesContainer.append(innerShapesContainer)
-		dgcn('mainContent')[0].append(shapesContainer)
+		shapesContainer.appendChild(innerShapesContainer)
+		dgcn('mainContent')[0].appendChild(shapesContainer)
 		
 
 		MasterIconList.forEach(function(shape){
@@ -80,8 +80,8 @@ RenderComponent = (function(){
 
 			newShape.classList.add('fa',shape)
 
-				shapeContainer.append(newShape)
-				innerShapesContainer.append(shapeContainer)
+				shapeContainer.appendChild(newShape)
+				innerShapesContainer.appendChild(shapeContainer)
 
 		})
 
@@ -102,7 +102,7 @@ RenderComponent = (function(){
 		// 	shapeContainer.classList.add('shapeContainer')
 		// 	var newShape = document.createElement('div')
 		// 	newShape.classList.add('newShape_'+shape)
-		// 	shapeContainer.append(newShape)
+		// 	shapeContainer.appendChild(newShape)
 		// 	shapesContainer.append(shapeContainer)
 		// })
 		

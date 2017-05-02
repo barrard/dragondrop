@@ -6,3 +6,5 @@ console.log(CratedElementsGlobal.UserCreatedElement_id_Prepend)
 	var dgid = function(el){
 		return document.getElementById(el)
 	}
+
+	

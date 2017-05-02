@@ -9,6 +9,40 @@ PageLayout = (function(){
 	}
 
 
+	//Save and delete button creation
+function addSaveAndDeleteButtonsToPageLayout(){
+	var mainContent = dgcn('mainContent')[0]
+	var save_delete_btn_container = document.createElement('div')
+	var sdbc = save_delete_btn_container
+	mainContent.appendChild(sdbc)
+	sdbc.classList.add('save_delete_btn_container')
+	var saveBtn = document.createElement('button')
+	var deleteBtn = document.createElement('button')
+	sdbc.appendChild(saveBtn)
+	sdbc.appendChild(deleteBtn)
+	saveBtn.innerText = 'Save'
+	deleteBtn.innerText = "Delete"
+
+	saveBtn.addEventListener('click', function(){
+		//TODO ADD SAVE FUNCTION
+		console.log('add save functions')
+
+	}, true)
+	deleteBtn.addEventListener('click', function(){
+		//TODO ADD ddelete FUNCTION
+		console.log('add deleteBtn functions')
+		var nodeList = dgcn('mainContent')[0].childNodes
+		chil.childNodes.forEach(function(x){console.log(x.id)})
+
+	}, true)
+
+}
+
+addSaveAndDeleteButtonsToPageLayout()
+
+
+
+
 //some manual set up for items not in the table array
 //mainly nodeName, // spaghetti code goes here
 dgid('elText').addEventListener('input', function(e){
@@ -22,11 +56,11 @@ var table = document.createElement('table')
 var headerRow = document.createElement('tr')
 var dataRow = document.createElement('tr')
 dataRow.id = 'currentSelectedElementData'
-selectedElementDetailsSection.append(table)
+selectedElementDetailsSection.appendChild(table)
 var tableHeaderArray = ['id','zIndex','left','top', 'width', 'height','border','Font Size','Rotate','Scale','opacity', 'background color' ]
 table.id = 'selectedElementDetailsTable'
-table.append(headerRow)
-table.append(dataRow)
+table.appendChild(headerRow)
+table.appendChild(dataRow)
 for(var x = 0;x<tableHeaderArray.length;x++){
 
 	var th = document.createElement('th')
@@ -64,7 +98,7 @@ for(var x = 0;x<tableHeaderArray.length;x++){
 			var op = document.createElement('option')
 			op.value = i
 			op.innerHTML = i
-			input.borderStyle.append(op)
+			input.borderStyle.appendChild(op)
 
 		})
 
@@ -105,11 +139,11 @@ for(var x = 0;x<tableHeaderArray.length;x++){
 			input[k].setAttribute('data-css', k)
 
 			input[k].addEventListener('input',styleChangeBinding, true)
-			td.append(input[k])
+			td.appendChild(input[k])
 		}
 	}else{
 		input.addEventListener('input',styleChangeBinding, true)
-		td.append(input)	
+		td.appendChild(input)	
 	}
 	
 	th.innerHTML=tableHeaderArray[x]
@@ -117,8 +151,8 @@ for(var x = 0;x<tableHeaderArray.length;x++){
 		th.classList.add('displayNone')
 		td.classList.add('displayNone')
 	}
-	headerRow.append(th)
-	dataRow.append(td)
+	headerRow.appendChild(th)
+	dataRow.appendChild(td)
 
 
 }//tableHeaderArray loop

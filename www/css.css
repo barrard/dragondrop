@@ -1,3 +1,7 @@
+body{
+	position: static;
+}
+
 .MainContainer{
 	border: 1px solid black;
 	height: 100%;
@@ -293,6 +297,14 @@ td, th {
 	background-color: rgba(233, 233, 233, 0.5);
 }
 
+.save_delete_btn_container{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	border: 2px solid tomato;
+
+}
+
 .touchDislay{
 	position: relative;
 	/*remove whitespace hack
@@ -318,6 +330,30 @@ td, th {
 	/*height: 100px;*/
 }
 
+#dragon{
+	background:url(img/dragon.png);
+	width: 87px;
+	height:113px;
+}
+
+@keyframes fly{
+	from{
+		width: 185px;
+		height:138px;
+		background-position-x:-3px;
+		background-position-y:-138px;
+		} 
+	to{
+	
+		width: 185px;
+		height:138px;
+
+
+		background-position-x:-990px;
+		background-position-y:-138px;
+		
+	}
+}
 
 
 
