@@ -122,7 +122,8 @@ function createChatter(){
 
 					}
 				}else{
-					var socket = io.connect('http://192.168.200.93:8081');
+					// var socket = io.connect('http://192.168.200.93:8081');
+					var socket = io.connect('http://72.234.40.8:8081');
 					var chatWindow = document.createElement('div')
 					chatWindow.id = 'chatterChatWindow'
 					console.log(chatWindow.style)
