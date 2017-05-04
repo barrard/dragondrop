@@ -330,30 +330,288 @@ td, th {
 	/*height: 100px;*/
 }
 
+#canvas{
+	border:1px solid goldenrod;
+	display: inline-block;
+/*	height: 300px;
+	width: 600px;*/
+	display: inline-block;
+}
+
 #dragon{
-	background:url(img/dragon.png);
-	width: 87px;
-	height:113px;
+	display: inline-block;
+	animation: 0.5s fly infinite steps(3);
+	background:url(img/dragonFlyingMode.png);
+	width: 200px;
+	height:200px;
+	/*background-position-x:0px; */
+	/*background-position-y:0px; */
+}
+#runningman{
+	display: inline-block;
+	background:url(img/3drunningMan.png)no-repeat;
+	background-position-x:0px; 
+	background-position-y:0px; 
+	width: 250px;
+	height:300px;
+	/*height:300px;*/
 }
 
 @keyframes fly{
 	from{
-		width: 185px;
-		height:138px;
-		background-position-x:-3px;
-		background-position-y:-138px;
+		/*background-position-x:0;*/
+
 		} 
 	to{
 	
-		width: 185px;
-		height:138px;
 
 
-		background-position-x:-990px;
-		background-position-y:-138px;
-		
+
+		background-position-x:600px;
 	}
 }
+
+
+@keyframes runh{
+	0%{
+		background-position-x:0px; 
+
+		} 
+
+	100%{
+		background-position-x:-1440px; 
+
+
+
+	}
+}
+@keyframes runv{
+	0%{
+		background-position-y:0px; 
+
+		} 
+
+	100%{
+		/*background-position-y:-300px; */
+		background-position-y:-1475px; 
+
+
+
+	}
+}
+
+.aminate{
+	border: 1px solid red;
+}
+
+#waterFall1{
+	background:url(img/waterFall1x3.png)no-repeat;
+	width:100px;
+	height: 330px;
+	display: inline-block;
+	animation: waterFallIxE 0.3s steps(3) infinite;
+	background-position-x:-14px; 
+
+	
+}
+@keyframes waterFallIxE{
+	0%{
+		/*background-position-x:0px; */
+
+		} 
+
+	100%{
+		/*background-position-y:-300px; */
+		background-position-x:-336px; 
+
+
+
+	}
+}
+
+
+#waterFall2{
+	display: inline-block;
+	width: 95px;
+	height:175px;
+	background:url(img/waterFall4x2.png)no-repeat;
+	animation: fall2h 0.5s infinite steps(4);
+
+	
+}
+#waterFall2Small{
+	display: inline-block;
+	width: 95px;
+	height:175px;
+	background:url(img/waterFall4x2.png)no-repeat;
+	animation: fall2h 0.5s infinite steps(4);
+	background-position-y:-200px; 
+
+	
+}
+
+@keyframes fall2h{
+	0%{
+
+		} 
+
+	100%{
+		background-position-x:-385px; 
+		/*background-position-x:-333px; */
+
+
+
+	}
+}
+
+
+
+#waterFall3{
+	width: 200px;
+	height:350px;
+	background:url(img/waterFallMARKED7x2.png)no-repeat;
+	background-position-x:-25px; 
+	animation: fallh 0.5s infinite steps(7),fallv 1.0s steps(2) infinite;
+
+	
+	
+}
+@keyframes fallh{
+	0%{
+
+		} 
+
+	100%{
+		background-position-x:-1475px; 
+		/*background-position-x:-333px; */
+
+
+
+	}
+}
+@keyframes fallv{
+	0%{
+		/*background-position-x:0px; */
+
+		} 
+
+	100%{
+		/*background-position-y:-300px; */
+		background-position-y:-700px; 
+
+
+
+	}
+}
+
+.aminate{
+	display: inline-block;
+}
+
+#waterSplash1{
+	background-color: green;
+	width: 150px;
+	height:250px;
+	background:url(img/waterSplash1x11.png)no-repeat;
+/*	background-position-x:-25px; 
+*/	animation: splah1h 1.0s infinite steps(11);
+}
+
+@keyframes splah1h{
+	0%{
+		background-position-x:-1650px; 
+
+		} 
+
+	100%{
+		background-position-x:0px; 
+
+	}
+}
+
+
+#waterSplash2{
+		width: 200px;
+		height:200px;
+		background:url(img/waterSplash5x10.png)no-repeat;
+	/*	background-position-x:-25px; 
+	*/	animation: splah2h 0.5s infinite steps(5), splah2v steps(10) 5.0s infinite;
+	
+}
+
+@keyframes splah2h{
+	0%{
+
+		} 
+
+	100%{
+		background-position-x:-950px; 
+		/*background-position-x:-333px; */
+
+
+
+	}
+}
+@keyframes splah2v{
+	0%{
+		/*background-position-x:0px; */
+
+		} 
+
+	100%{
+		/*background-position-y:-300px; */
+		background-position-y:-1915px; 
+
+
+
+	}
+}
+
+
+#waterSplash3{
+		width: 200px;
+		height:200px;
+		background:url(img/waterSplash5x5.jpg)no-repeat;
+	/*	background-position-x:-25px; 
+	*/	animation: splah3h 0.5s infinite steps(5), splah3v steps(6) 3.0s infinite;
+	
+}
+#waterSplash3:before{
+	content: '';
+	width: 41px;
+	height: 45px;
+	border: 1px solid green;
+	position: absolute;
+}
+
+@keyframes splah3h{
+	0%{
+
+		} 
+
+	100%{
+		background-position-x:-204px; 
+		/*background-position-x:-333px; */
+
+
+
+	}
+}
+@keyframes splah3v{
+	0%{
+		/*background-position-x:0px; */
+
+		} 
+
+	100%{
+		/*background-position-y:-300px; */
+		background-position-y:-245px; 
+
+
+
+	}
+}
+
 
 
 

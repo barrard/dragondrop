@@ -16,6 +16,7 @@ function checkForChatterBox(){
 	}
 }
 
+var socket={};
 
 function createChatLogo(chatBox){
 	var talkBubble = document.createElement('div')
@@ -122,24 +123,24 @@ function createChatter(){
 
 					}
 				}else{
-					// var socket = io.connect('http://192.168.200.93:8081');
-					var socket = io.connect('http://72.234.40.8:8081');
+					// socket = io.connect('http://192.168.200.93:8081');
+					socket = io.connect('http://72.234.40.8:8081');
 					var chatWindow = document.createElement('div')
 					chatWindow.id = 'chatterChatWindow'
 					console.log(chatWindow.style)
 					console.log(chatWindow.style.height)
 					var container = chatBox.parentNode
-					chatWindow.style = `
-						display:block;
-						position:absolute;
-						width:250%;
-						height:400%;
-						top:-350%;
-						right:10px;
-						background-color:tomato;
+					var cws = chatWindow.style;
+						cws.display='block';
+						cws.position='absolute';
+						cws.width='250%';
+						cws.height='400%';
+						cws.top='-350%';
+						cws.right='10px';
+						cws.backgroundColor='tomato';
 
 
-					`
+				
 					chatBox.appendChild(chatWindow)
 					chatWindow.addEventListener('mouseover', function(e){
 						e.stopPropagation()
