@@ -612,7 +612,41 @@ td, th {
 	}
 }
 
+#rocks1{
+		width: 200px;
+		height:200px;
+		background:url(img/rocks1.png)no-repeat;
+	/*	background-position-x:-25px; 
+	*/	animation: rocks1h 1.0s infinite steps(8), rocks1v steps(8) 8.0s infinite;
+	
+}
+@keyframes rocks1h{
+	0%{
 
+		} 
+
+	100%{
+		background-position-x:-1024px; 
+		/*background-position-x:-333px; */
+
+
+
+	}
+}
+@keyframes rocks1v{
+	0%{
+		/*background-position-x:0px; */
+
+		} 
+
+	100%{
+		/*background-position-y:-300px; */
+		background-position-y:-1024px; 
+
+
+
+	}
+}
 
 
 
