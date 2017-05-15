@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "socket.io": "^1.7.3"
+    "mongodb": "^2.2.26",
+    "socket.io": "^1.7.3",
+    "tracer": "^0.8.9"
   }
 }

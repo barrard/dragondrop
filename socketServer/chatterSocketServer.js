@@ -1,6 +1,25 @@
-
+var app = require('http').createServer(handler)
+var db = require('./chatterDB.js')
 var port = 8081
-var io = require('socket.io')(port)
+var io = require('socket.io')(app);
+var fs = require('fs');
+
+
+app.listen(8081)
+db.test()
+
+function handler (req, res) {
+  fs.readFile(__dirname + '/chatter.css',
+  function (err, data) {
+    if (err) {
+      res.writeHead(500);
+      return res.end('Error loading index.html');
+    }
+
+    res.writeHead(200);
+    res.end(data);
+  });
+}
 
 
 // io(port)
@@ -8,12 +27,15 @@ var socketArray=[]
 io.on('connection', function (socket) {
 	console.log('connection')
 	socketArray.push(socket)
-  socket.emit('socketCount', socketArray.length );
-  socket.on('userClick', function (data) {
-    //userClick evet
-    console.log('userClick')
-    console.log(data);
-})
+  socket.on('usernameInput', function(d){
+    io.emit('socketCount', socketArray.length );
+    socket.emit('serverID', d)
+
+
+  })
+  socket.on('inputText', function(d){
+    socket.broadcast.emit('inputText', d)
+  })
 
 
 
@@ -26,6 +48,8 @@ socket.on('disconnect', function(){
       console.log('this socket is lost...? '+socket.id)
     }
     console.log('disconnection! '+socket.id)
+    io.emit('socketCount', socketArray.length );
+
     io.sockets.emit('userDisconnected', socket.id)
 })
 

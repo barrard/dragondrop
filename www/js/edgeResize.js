@@ -17,10 +17,10 @@ var EdgeResize = (function(){
 			}
 
 			// console.log(e.target.style.width)
-			console.log('e.target.offsetWidth '+ e.target.offsetWidth)
-			console.log("e.target.offsetLeft "+e.target.offsetLeft)
-			console.log('e.clientX '+e.clientX)
-			console.log('e.offsetX' + e.offsetX)
+			// console.log('e.target.offsetWidth '+ e.target.offsetWidth)
+			// console.log("e.target.offsetLeft "+e.target.offsetLeft)
+			// console.log('e.clientX '+e.clientX)
+			// console.log('e.offsetX' + e.offsetX)
 			var offsetX = clientX - e.target.offsetLeft - 2
 			// console.log('width '+e.target.offsetWidth)
 			// console.log('left '+e.target.offsetLeft)

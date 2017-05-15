@@ -6,6 +6,9 @@ var Chatter = (function(coreModule){
 	var dgid = function(el){
 		return document.getElementById(el)
 	}
+	var dce = function(el){
+		return document.createElement(el)
+	}
 	
 
 function checkForChatterBox(){
@@ -88,11 +91,11 @@ function createChatter(){
 					cbs.width='100px';
 					cbs.height='100px';
 					cbs.position='absolute';
-					cbs.top='0px';
+					cbs.bottom='10%';
 					cbs.right='0px';
 					cbs.margin='10px';
 					cbs.borderRadius='10px';
-					cbs.overflow='hidden';
+					cbs.overflow='visible';
 					cbs.zIndex='100';
 					cbs.border='1px solid red';
 			createChatLogo(chatBox)
@@ -102,12 +105,12 @@ function createChatter(){
 			chatBox.addEventListener('mouseover', function(e){
 				// e.stopPropagation()
 				chatBox.style.backgroundColor = 'tomato'
-				console.log('mouseover')
+				// console.log('mouseover')
 			}, false)
 			chatBox.addEventListener('mouseleave', function(e){
 				// e.stopPropagation()
 				chatBox.style.backgroundColor = 'white'
-				console.log('mouseleave')
+				// console.log('mouseleave')
 			}, false)
 
 			chatBox.addEventListener('click', function openChatApp(e){
@@ -123,12 +126,25 @@ function createChatter(){
 
 					}
 				}else{
-					// socket = io.connect('http://192.168.200.93:8081');
-					socket = io.connect('http://72.234.41.20:8081');
+					// socket = io.connect('http://192.168.0.93:8081');
+					socket = io.connect('http://66.8.168.178/:8081');
+					socket.on('socketCount', function(d){
+						dgid('_ChatUserCount').innerText=d
+					})
+					socket.on('serverID', function(d){
+						console.log(d)
+						
+						dgid('_ChatteruserID').innerText=d
+
+					})
+					socket.on('inputText', function(d){
+						addInputTextToChatWindow(d)
+
+					})
+					
+					// socket = io.connect('http://72.234.41.20:8081');
 					var chatWindow = document.createElement('div')
 					chatWindow.id = 'chatterChatWindow'
-					console.log(chatWindow.style)
-					console.log(chatWindow.style.height)
 					var container = chatBox.parentNode
 					var cws = chatWindow.style;
 						cws.display='block';
@@ -139,23 +155,51 @@ function createChatter(){
 						cws.right='10px';
 						cws.backgroundColor='tomato';
 
+						//get/give a name to this person
+						var uNameInputContainer = dce('div')
+						uNameInputContainer.id='_ChatUsernameInputContainer'
+						var usernameInput = dce('input')
+						usernameInput.id='_ChatUserNameInput'
+						usernameInput.placeholder='user'+Math.floor(Math.random()*(11111-11)+11)
+						usernameInput.type = 'text'
+						var submitBtn = dce('button')
+						submitBtn.innerText = 'Begin Chat'
+						uNameInputContainer.append(usernameInput)
+						uNameInputContainer.append(submitBtn)
+						chatWindow.append(uNameInputContainer)
+						submitBtn.addEventListener('click', function(){
+							var uName = dgid('_ChatUserNameInput')
+							if(uName.value.length>0){
+								socket.emit('usernameInput', uName.value)
+
+							}else{
+								socket.emit('usernameInput', uName.placeholder)
+
+							}
+							uNameInputContainer.style.display='none'
+							createChatterWindowWidgets(chatWindow)
+
+						})
+
+
 
 				
 					chatBox.appendChild(chatWindow)
-					chatWindow.addEventListener('mouseover', function(e){
-						e.stopPropagation()
-						// chatBox.style.backgroundColor = 'tomato'
-						console.log('mouseover chatWindow')
-					}, false)
-					chatWindow.addEventListener('mouseleave', function(e){
-						e.stopPropagation()
-						// chatBox.style.backgroundColor = 'white'
-						console.log('mouseleave chatWindow')
-					}, false)
+					// chatWindow.addEventListener('mouseover', function(e){
+					// 	e.stopPropagation()
+					// 	// chatBox.style.backgroundColor = 'tomato'
+					// 	console.log('mouseover chatWindow')
+					// }, false)
+					// chatWindow.addEventListener('mouseleave', function(e){
+					// 	e.stopPropagation()
+					// 	// chatBox.style.backgroundColor = 'white'
+					// 	console.log('mouseleave chatWindow')
+					// }, false)
 
-					chatWindow.addEventListener('click', function openChatApp(e){
+					chatWindow.addEventListener('click', function(e){
+						//prevents windwo from closing 
 						e.stopPropagation()
-					}, true)
+					}, false)
 				}
 
 
@@ -166,16 +210,95 @@ function createChatter(){
 			googlefontlink.href = 'https://fonts.googleapis.com/css?family=Rock+Salt'
 			googlefontlink.rel="stylesheet"
 			document.getElementsByTagName('head')[0].appendChild(googlefontlink)
+			var chatterStyles = document.createElement('link')
+			// chatterStyles.href = 'http://192.168.0.93:8081/chatter.css'
+			chatterStyles.href = 'http://66.8.168.178/:8081/chatter.css'
+			
+			chatterStyles.rel="stylesheet"
+			document.getElementsByTagName('head')[0].appendChild(chatterStyles)
 
 				var script = document.createElement('script')
-				script.src = 'http://72.234.41.20:8081/socket.io/socket.io.js'
-				// script.src = 'http://192.168.200.93:8081/socket.io/socket.io.js'
+				// console.log(window.location)
+				script.src = 'http://66.8.168.178/:8081/socket.io/socket.io.js'
+				// script.src = 'http://192.168.0.93:8081/socket.io/socket.io.js'
 				document.getElementsByTagName('head')[0].appendChild(script)
 }
 	
 
-		
+function createChatterWindowWidgets(chatWindow){
+	var head = dce('div')
+	head.classList.add('_ChatWindowHeader')
+	head.id='_ChatHeader'
+	head.innerHTML = `Hello, <span id="_ChatteruserID"></span></p><a>Edit Name</a>
+						<br>
+					Total users: <span id="_ChatUserCount"></span>
+					`
+	chatWindow.append(head)
 
+	var chatLog = dce('div')
+	chatLog.id='_ChatLog'
+	var cs = chatLog.style 
+	cs.width = '100%'
+	cs.height = "50%"
+	cs.background = 'cyan'
+	cs.overflow = "scroll"
+	
+	chatWindow.append(chatLog)
+
+
+	var inputText = dce('input')
+	inputText.type='text'
+	inputText.id='_ChatInputText'
+	var sendButton = dce('button')
+	sendButton.innerText='send'
+	sendButton.addEventListener('click', sendChatToServer, false)
+	chatWindow.append(inputText)
+	chatWindow.append(sendButton)
+
+	function sendChatToServer(e){
+		var textObj ={}
+		console.log('sending inputText out')
+		var input = dgid('_ChatInputText')
+		textObj.sender=dgid('_ChatteruserID').innerText
+		textObj.text = input.value
+		socket.emit('inputText', textObj)
+
+		addInputTextToChatWindow(textObj)
+		input.value = ''
+	}
+
+
+
+
+}
+
+
+function addInputTextToChatWindow(textObj){
+	var chatLog =dgid('_ChatLog')
+	var newInputLine = dce('div')
+	var sender = dce('span')
+	sender.classList.add('_ChatSender')
+	sender.innerText=textObj.sender
+	var text = dce('span')
+	text.classList.add('_ChatText')
+	text.innerText = textObj.text
+	var date = dce('div')
+	date.classList.add('_ChatTimestamp')
+	var d = new Date()
+	// d.toString().split(' ')
+	var day = d.getDate()+1
+	var month = d.getMonth()+1
+	var year = d.getYear()+1900
+	var hour = d.getHours()+1
+	var minute = d.getMinutes()+1
+	date.innerText=month+'/'+day+'/'+year+'  -  '+hour+':'+minute
+	newInputLine.append(sender)
+	newInputLine.append(text)
+	newInputLine.append(date)
+	chatLog.append(newInputLine)
+	console.log(textObj)
+
+}
 
 
 		

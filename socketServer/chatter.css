@@ -1,0 +1,21 @@
+._ChatSender{
+	color: green;
+	text-decoration: underline;
+}
+
+
+._ChatWindowHeader{
+	display: block;
+	text-align: center;
+}
+
+._ChatText{
+	padding:5px 15px 5px 15px;
+	display: block;
+	text-align: center;
+}
+
+._ChatTimestamp{
+	text-align: right;
+	font-size: 9px;
+}

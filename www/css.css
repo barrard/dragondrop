@@ -650,6 +650,267 @@ td, th {
 
 
 
+#waterReflection{
+		width: 340px;
+		height:130px;
+		background:url(img/waterReflection.jpg)no-repeat;
+	/*	background-position-x:-25px; 
+	*/	animation: waterReflectionh 0.3s infinite steps(3), waterReflectionv steps(5) 1.5s infinite;
+	
+}
+@keyframes waterReflectionh{
+	0%{
+
+		} 
+
+	100%{
+		background-position-x:-1024px; 
+		/*background-position-x:-333px; */
+
+
+
+	}
+}
+@keyframes waterReflectionv{
+	0%{
+		/*background-position-x:0px; */
+
+		} 
+
+	100%{
+		/*background-position-y:-300px; */
+		background-position-y:-650px; 
+
+
+
+	}
+}
+
+#clouds{
+		width: 102px;
+		height:37px;
+		background:url(img/clouds.jpg)no-repeat;
+	/*	background-position-x:-25px; 
+	*/	animation: cloudsh 1s infinite steps(2), cloudsv steps(6) 6s infinite;
+	
+}
+@keyframes cloudsh{
+	0%{} 
+	100%{background-position-x:-204px;}
+	}
+@keyframes cloudsv{
+	0%{} 
+	100%{
+		background-position-y:-244px; 
+	}
+}
+
+#lightning{
+	width: 73px;
+	height:245px;
+	background:url(img/lightning.png)no-repeat;
+	animation: lightningh 0.9s infinite steps(9);
+	/*lightningv steps(6) 1.8s infinite;*/
+	
+}
+@keyframes lightningh{
+	0%{} 
+
+	100%{
+		background-position-x:-650px;
+	}
+}
+
+#flame1{
+		width: 25px;
+		height:37px;
+		background:url(img/flame1.jpg)no-repeat;
+		background-position-x:-20px; 
+		animation: flame1h 1.0s infinite steps(8);
+		 /*flame1v steps(3) 3.0s infinite;*/
+	
+}
+@keyframes flame1h{
+	0%{} 
+	100%{background-position-x:-275px;}
+	}
+/*@keyframes flame1v{
+	0%{} 
+	100%{
+		background-position-y:-185px; 
+	}
+}
+*/
+
+#flame2{
+		width: 25px;
+		height:37px;
+		background:url(img/flame2.jpg)no-repeat;
+		background-position-x:-30px; 
+		animation: flame2h 1.0s infinite steps(6), flame2v steps(3) 3.0s infinite;
+	
+}
+@keyframes flame2h{
+	0%{} 
+	100%{background-position-x:-260px;}
+	}
+@keyframes flame2v{
+	0%{} 
+	100%{
+		background-position-y:-170px; 
+	}
+}
+
+
+#flame3{
+		width: 80px;
+		height:115px;
+		background:url(img/flame3.jpg)no-repeat;
+		background-position-x:-30px; 
+		animation: flame3h 0.5s infinite steps(5), flame3v steps(4) 2.0s infinite;
+	
+}
+@keyframes flame3h{
+	0%{} 
+	100%{background-position-x:-400px;}
+	}
+@keyframes flame3v{
+	0%{} 
+	100%{
+		background-position-y:-450px; 
+	}
+}
+
+
+#flame4{
+		width: 90px;
+		height:90px;
+		background:url(img/flame4.png)no-repeat;
+		/*background-position-x:-30px; */
+		animation: flame4h 1s infinite steps(12), flame4v steps(6) 6s infinite;
+	
+}
+@keyframes flame4h{
+	0%{} 
+	100%{background-position-x:-1024px;}
+	}
+@keyframes flame4v{
+	0%{} 
+	100%{
+		background-position-y:-512px; 
+	}
+}
+
+
+
+#cockroach1{
+		width: 180px;
+		height:65px;
+		background:url(img/cockroach1.png)no-repeat;
+		background-position-y:-5px; 
+		animation: cockroach1h 0.25s infinite steps(4);
+		 /*cockroach1v steps(6) 1s infinite;*/
+	
+}
+@keyframes cockroach1h{
+	0%{} 
+	100%{background-position-y:-240px;}
+	}
+/*@keyframes cockroach1v{
+	0%{} 
+	100%{
+		background-position-y:-512px; 
+	}
+}
+*/
+
+
+#banjor{
+		width: 150px;
+		height:150px;
+		background:url(img/banjor.png)no-repeat;
+		background-position-y:-15px; 
+		animation: banjorh 0.2s infinite steps(6), banjorv steps(4) 0.8s infinite;
+	
+}
+@keyframes banjorh{
+	0%{} 
+	100%{background-position-x:-900px;}
+	}
+@keyframes banjorv{
+	0%{} 
+	100%{
+		background-position-y:-570px; 
+	}
+}
+#myBall{
+		width: 640px;
+		height:480px;
+		background:url(img/myBall.png)no-repeat;
+		/*background-position-y:100%; */
+		/*background-position-x:100%; */
+		animation: myBallh 1.0s infinite steps(9), myBallv  2.0s infinite steps(2);
+	
+}
+@keyframes myBallh{
+	0%{background-position-x:100%;} 
+	100%{background-position-x:0%;}
+	}
+@keyframes myBallv{
+	0%{background-position-y:100%} 
+	100%{
+		background-position-y:-0%; 
+	}
+}
+
+#robot{
+		width: 81px;
+		height:83px;
+		background:url(img/robot.png)no-repeat;
+		/*background-position-y:-15px; */
+		animation: /*robot_walk 0.5s steps(7) infinite*/; 
+		/*robot_shootV steps(2) 1s ;*/
+	
+}
+
+
+
+
+@keyframes robot_walk{
+	0%{
+		background-position-x:0px; 
+} 
+	100%{
+		background-position-x:-567px;
+/*		background-position-y:-166px; 
+*/
+	}
+	}
+	@keyframes robot_shootH{
+		0%{
+			/*background-position-y:-83px; */
+	} 
+		100%{
+			background-position-x:-567px;
+	/*		background-position-y:-166px; 
+	*/
+		}
+		}
+@keyframes robot_shootV{
+	0%{
+	background-position-y:-83px; 
+} 
+	100%{
+		background-position-y:-250px; 
+	}
+}
+
+
+
+
+
+
+
 
 
 

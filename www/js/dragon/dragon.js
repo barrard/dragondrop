@@ -10,6 +10,55 @@
 	}, true)
 
 
+function $(name){
+	return document.getElementById(name)
+}
+
+var robotButtonsArray = []
+robotButtonsArray.push($('robot_walk'))
+robotButtonsArray.push($('robot_stop'))
+robotButtonsArray.push($('robot_shoot'))
+robotButtonsArray.push($('robot_down'))
+robotButtonsArray.push($('robot_up'))
+
+function animationEndHandler(e){
+	e.target.removeEventListener('animationend', animationEndHandler)
+	console.log('cool animation bro')
+	e.target.style.animation = 'none'
+}
+
+robotButtonsArray.forEach(function(i){
+	i.addEventListener('click', function(){
+		var animation_clicked = i.id
+		//robot is being hard coded here and should be refactored ot more dyanmic
+		var robot = $('robot')
+		var robot_animation=robot.style.animation
+
+		robot.addEventListener('animationend', animationEndHandler, false)
+		console.log(animation_clicked)
+		console.log(robot_animation)
+		var robot_style=robot.style
+		console.log(animation_clicked)
+
+		if(animation_clicked == 'robot_shoot'){
+			robot_style.animation='robot_shootH 0.5s steps(7) 2, robot_shootV steps(2) 1s'
+
+		}else if(animation_clicked == 'robot_walk'){
+			robot_style.animation='robot_walk 0.5s steps(7) infinite'
+
+		}else if(animation_clicked == 'robot_down'){
+			robot_style.animation='robot_walk 0.5s steps(7) infinite'
+
+		}
+		var robot_animation=robot.style.animation
+		console.log(robot_animation)
+
+
+		 
+	}, false)
+})
+
+
 
 
 	var Context = {

@@ -14,7 +14,7 @@ var TimeLine = (function(){
 	console.log('timeline function')
 	var masterTimeLine = {}
 	function createTimeLine(){
-		console.log('new timeline created')
+		// console.log('new timeline created')
 		
 		var timeLineObj = {}
 		this.newTimeStamp = function(timeStampData){
