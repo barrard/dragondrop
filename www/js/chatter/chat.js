@@ -127,7 +127,7 @@ function createChatter(){
 					}
 				}else{
 					// socket = io.connect('http://192.168.0.93:8081');
-					socket = io.connect('http://66.8.168.178/:8081');
+					socket = io.connect('http://66.8.168.178:8081');
 					socket.on('socketCount', function(d){
 						dgid('_ChatUserCount').innerText=d
 					})
@@ -212,14 +212,14 @@ function createChatter(){
 			document.getElementsByTagName('head')[0].appendChild(googlefontlink)
 			var chatterStyles = document.createElement('link')
 			// chatterStyles.href = 'http://192.168.0.93:8081/chatter.css'
-			chatterStyles.href = 'http://66.8.168.178/:8081/chatter.css'
+			chatterStyles.href = 'http://66.8.168.178:8081/chatter.css'
 			
 			chatterStyles.rel="stylesheet"
 			document.getElementsByTagName('head')[0].appendChild(chatterStyles)
 
 				var script = document.createElement('script')
 				// console.log(window.location)
-				script.src = 'http://66.8.168.178/:8081/socket.io/socket.io.js'
+				script.src = 'http://66.8.168.178:8081/socket.io/socket.io.js'
 				// script.src = 'http://192.168.0.93:8081/socket.io/socket.io.js'
 				document.getElementsByTagName('head')[0].appendChild(script)
 }
