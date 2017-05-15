@@ -142,7 +142,6 @@ function createChatter(){
 
 					})
 					
-					// socket = io.connect('http://72.234.41.20:8081');
 					var chatWindow = document.createElement('div')
 					chatWindow.id = 'chatterChatWindow'
 					var container = chatBox.parentNode

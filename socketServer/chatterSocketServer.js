@@ -9,7 +9,10 @@ app.listen(8081)
 db.test()
 
 function handler (req, res) {
-  fs.readFile(__dirname + '/chatter.css',
+  console.log('Socket Handler hit')
+  console.log('wahts the req object look like')
+  console.log(req.url)
+  fs.readFile(__dirname + req.url,
   function (err, data) {
     if (err) {
       res.writeHead(500);
